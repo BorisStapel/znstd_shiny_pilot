@@ -15,5 +15,4 @@ leaflet(sp_buurten) %>%
   addTiles() %>%
   addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = .8,
               fillColor = ~pal(aant_inw))
-download.file("http://geo.zaanstad.nl/geoserver/geo/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo:cbs_buurten_2017&maxFeatures=50&outputFormat=application%2Fjson",
-              destfile = "blabla.geojson")
+
