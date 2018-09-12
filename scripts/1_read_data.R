@@ -1,3 +1,7 @@
+library("magrittr")
+library("rgdal")
+library("leaflet")
+
 #read shape data from geoJson
 
 ##TODO read data directly from geoserver##
