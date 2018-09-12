@@ -1,6 +1,6 @@
 # znstd_shiny_pilot
 shiny pilot
 
-![alt text](wijk.png)
+![alt text](images/wijk.png)
 
-![alt text](buurt.png)
+![alt text](images/buurt.png)
