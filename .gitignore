@@ -41,3 +41,5 @@ rsconnect/
 *.geojson
 *.csv
 *.xlsx
+*.Rmd
+*.html
