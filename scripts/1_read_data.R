@@ -14,6 +14,9 @@ sp_wijken <- readOGR(dsn = "data/wijk_zaanstad.geojson") %>% #read geojson
   spTransform(CRS("+proj=longlat +datum=WGS84")) #transform to XY to longlat
 
 
-df <- read_csv2("data/data.csv")
+df <- read_csv2("data/data.csv") %>% 
+  mutate(periode = lubridate::ymd(paste0(periode,"01"))) %>%
+  left_join(read_csv2("data/ordered_categorie.csv"), by = "categorie")
+
 
 
