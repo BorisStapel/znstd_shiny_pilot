@@ -8,19 +8,22 @@
 #
 
 library(shiny)
-load("data/data_env.RData")
+library("dygraphs")
+library("janitor")
+library("tidyverse")
+library("xts")
+load("data_env.RData")
+uitk <- 
+  df %>% 
+  select(periode, buurt, orde) %>% 
+  spread(buurt, orde) %>% 
+  mutate_if(is.integer, as.numeric) %>% 
+  clean_names() 
+
+time <- as.xts(uitk[,2:51], order.by = uitk$periode)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
    
-  output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
-  })
+  output$dygraph <- renderDygraph({dygraph(time)})
   
 })
