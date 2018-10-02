@@ -7,10 +7,10 @@ library("leaflet")
 #read shape data from geoJson
 
 ##TODO read data directly from geoserver##
-sp_buurten <- readOGR(dsn = "data/buurt_zaanstad.geojson") %>% #read geojson 
+sp_buurten <- readOGR(dsn = "data/buurt_zaanstad.geojson", stringsAsFactors = F) %>% #read geojson 
   spTransform(CRS("+proj=longlat +datum=WGS84")) #transform to XY to longlat
 
-sp_wijken <- readOGR(dsn = "data/wijk_zaanstad.geojson") %>% #read geojson 
+sp_wijken <- readOGR(dsn = "data/wijk_zaanstad.geojson", stringsAsFactors = F) %>% #read geojson 
   spTransform(CRS("+proj=longlat +datum=WGS84")) #transform to XY to longlat
 
 
@@ -20,3 +20,4 @@ df <- read_csv2("data/data.csv") %>%
 
 
 
+save.image("~/Documents/DataScience/Zaanstad/znstd_shiny_pilot/data/data_env.RData")
